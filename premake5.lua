@@ -1,18 +1,3 @@
--- Temporary fix for incorrect link formatting
-require("vstudio")
-premake.override(premake.vstudio.vc2010, "additionalDependencies", function(oldfn, cfg, explicit)
-	if cfg.system ~= premake.WINDOWS then
-    	oldfn(cfg, explicit)
-	else
-		local links
-		links = premake.vstudio.getLinks(cfg, explicit)
-    	if #links > 0 then
-      		links = path.translate(table.concat(links, ";"))
-      		premake.vstudio.vc2010.element("AdditionalDependencies", nil, "%s;%%(AdditionalDependencies)", links)
-    	end
-  	end
-end)
-
 workspace "MY_PROJECT_NAME"
    configurations { "Debug", "Release" }
 
