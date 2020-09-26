@@ -25,7 +25,10 @@ project "MY_PROJECT_NAME"
 	targetdir "bin/%{cfg.buildcfg}"
 	defines{"WIN32", "_CONSOLE"}
 
-	files { "src/**.h", "src/**.cpp" }
+	files { 
+		"src/**.h", "src/**.hpp",
+		"src/**.c", "src/**.cpp"
+	}
 
 	-- DEPENDENCIES
 
