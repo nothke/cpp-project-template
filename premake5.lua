@@ -1,7 +1,9 @@
-workspace "MY_PROJECT_NAME"
+NAME = (io.popen"cd":read'*l'):match("[^/\\]*$") -- current folder name
+
+workspace (NAME)
    configurations { "Debug", "Release" }
 
-project "MY_PROJECT_NAME"
+project (NAME)
 	kind "ConsoleApp"
 	language "C++"
 	architecture "x64"
