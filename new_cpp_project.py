@@ -34,7 +34,10 @@ def onerror(func, path, exc_info):
 
 shutil.rmtree(".git", onerror=onerror)
 os.remove("README.md")
-print("Removed .git and README.md")
+if os.path.exists("new_cpp_project.py"):
+    os.remove("new_cpp_project.py")
+
+print("Removed .git, README.md and script")
 
 subprocess.call(["premake5", "vs2022"])
 
