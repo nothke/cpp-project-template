@@ -17,6 +17,11 @@ project (NAME)
 		"src/**.c", "src/**.cpp"
 	}
 
+	buildoptions{
+		--"-openmp",
+		--"-verbose"
+	}
+
 	-- DEPENDENCIES
 
 	includedirs { "deps/include" }
@@ -29,11 +34,6 @@ project (NAME)
 	--postbuildcommands {
 	--	"{COPY} pathtodll/file.dll %{cfg.targetdir}"
 	--}
-
-	buildoptions{
-		--"-openmp",
-		--"-verbose"
-	}
 
 	filter "configurations:Debug"
 		defines{"_DEBUG"}
