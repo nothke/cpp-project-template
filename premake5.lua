@@ -12,6 +12,9 @@ project (NAME)
 	targetdir "bin/%{cfg.buildcfg}"
 	defines{"WIN32", "_CONSOLE"}
 
+	-- if using modules:
+	buildstlmodules "On"
+
 	files { 
 		"src/**.h", "src/**.hpp",
 		"src/**.c", "src/**.cpp"
